@@ -1,0 +1,32 @@
+{
+  "name": "todo-pro",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:sattwyk/todo-pro.git",
+  "author": "sattwyk <hellosattwik@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx src/app.ts"
+  },
+  "dependencies": {
+    "@fastify/swagger": "^8.0.0",
+    "@fastify/type-provider-json-schema-to-ts": "^2.1.1",
+    "@sinclair/typebox": "^0.24.47",
+    "@typegoose/typegoose": "^9.12.1",
+    "env-schema": "^5.1.0",
+    "fastify": "^4.9.2",
+    "mongoose": "^6.6.5",
+    "nanoid": "3.3.4"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.1.2",
+    "@commitlint/config-conventional": "^17.1.0",
+    "@types/node": "^18.11.2",
+    "husky": "^8.0.1",
+    "prettier": "^2.7.1",
+    "tsx": "^3.10.3",
+    "typescript": "^4.8.4",
+    "vitest": "^0.24.3"
+  }
+}
