@@ -1,3 +1,4 @@
+import { logger } from './utils/logger';
 import { createServer } from './utils/createServer';
 
 (async function startServer() {
@@ -9,7 +10,7 @@ import { createServer } from './utils/createServer';
       host: '0.0.0.0',
     },
     () => {
-      console.log('App is listening on Port: 400 🚀');
+      logger.info(`App is listening on Port: 400 🚀`);
     }
   );
 })();
