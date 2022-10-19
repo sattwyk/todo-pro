@@ -6,8 +6,9 @@ import { version } from "./../../package.json";
 export const createServer = async () => {
   const app = fastify();
 
+  // TODO: fix docs
   app.register(swagger, {
-    routePrefix: "/docs",
+    // routePrefix: '/docs',
     swagger: {
       tags: [
         {
@@ -20,8 +21,8 @@ export const createServer = async () => {
         version,
       },
     },
-    staticCSP: true,
-    exposeRoute: true,
+    // staticCSP: true,
+    // exposeRoute: true,
   });
 
   app.register(todoRoute, { prefix: "/api/todos" });
