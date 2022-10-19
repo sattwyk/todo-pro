@@ -1,9 +1,10 @@
 import { FastifyReply, FastifyRequest } from "fastify";
 import { logger } from "../../utils/logger";
+import { CreateTodoBody } from "./todo.schema";
 import { createTodo } from "./todo.service";
 
 export const createTodoHandler = async (
-  request: FastifyRequest,
+  request: FastifyRequest<{ Body: CreateTodoBody }>,
   reply: FastifyReply
 ) => {
   try {

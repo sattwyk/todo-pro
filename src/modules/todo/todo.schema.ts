@@ -1,4 +1,4 @@
-import { Type } from "@sinclair/typebox";
+import { Type, Static } from "@sinclair/typebox";
 
 const todo = Type.Object({
   _id: Type.String(),
@@ -21,3 +21,5 @@ export const createTodoSchema = {
     201: todo,
   },
 };
+
+export type CreateTodoBody = Static<typeof createTodoSchema.body>;
