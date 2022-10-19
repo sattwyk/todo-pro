@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc",
-    "dev": "tsx src/app.ts"
+    "dev": "tsx watch src/app.ts"
   },
   "dependencies": {
     "@fastify/swagger": "^8.0.0",
