@@ -1,3 +1,3 @@
 module.exports = {
-  exports: ['@commitlint/config-conventional'],
+  extends: ["@commitlint/config-conventional"],
 };
