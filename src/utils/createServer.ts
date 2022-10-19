@@ -1,6 +1,6 @@
 import fastify from 'fastify';
 
-export const createServer = () => {
+export const createServer = async () => {
   const app = fastify();
 
   return app;

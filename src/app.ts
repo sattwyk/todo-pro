@@ -1,7 +1,25 @@
 import { logger } from './utils/logger';
 import { createServer } from './utils/createServer';
-import { connectToDb } from './utils/db';
+import { connectToDb, disconnectFromDb } from './utils/db';
 import { config } from './utils/config';
+
+const signals = ['SIGINT', 'SIGTERM', 'SIGHUP'] as const;
+
+async function gracefulShutDown({
+  signal,
+  server,
+}: {
+  signal: typeof signals[number];
+  server: Awaited<ReturnType<typeof createServer>>;
+}) {
+  logger.info(`GOT signal ${signal}. Good Bye 👋 `);
+
+  await server.close();
+
+  await disconnectFromDb();
+
+  process.exit(0);
+}
 
 (async function startServer() {
   const server = await createServer();
@@ -17,4 +35,10 @@ import { config } from './utils/config';
   );
 
   await connectToDb();
+
+  for (let i = 0; i < signals.length; i++) {
+    process.on(signals[i], () =>
+      gracefulShutDown({ signal: signals[i], server })
+    );
+  }
 })();
