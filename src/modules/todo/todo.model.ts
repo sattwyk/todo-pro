@@ -8,6 +8,12 @@ export class Todo {
   title: string;
 
   @prop({
+    type: String,
+    required: true,
+  })
+  shortId: string;
+
+  @prop({
     type: Boolean,
     default: false,
   })
